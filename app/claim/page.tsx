@@ -12,8 +12,6 @@ const ClaimProfilePage = () => {
         password: ''
     });
 
-    // 
-
     interface ClaimProfileFormData {
         email: string;
         mobile: string;
@@ -30,28 +28,48 @@ const ClaimProfilePage = () => {
         }));
     };
 
+    const handleViewProfile = () => {
+        // Navigate to doctor profile page
+        window.location.href = '/about-doctor';
+    };
+
+    const handleRegisterClaim = () => {
+        // Scroll to the registration form
+        const formElement = document.querySelector('.registration-form');
+        if (formElement) {
+            formElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    const handleFormSubmit = () => {
+        // Handle form submission
+        console.log('Form submitted:', formData);
+        // Add your form submission logic here
+    };
+
     return (
         <div className="min-h-screen bg-gray-50">
             <Header />
             
-            <div className="max-w-6xl mx-auto px-4 py-12">
-                {/* Hero Section */}
-                <div className="text-center mb-12">
-                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <UserPlus className="w-8 h-8 text-blue-600" />
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+                {/* Hero Section - Improved for mobile */}
+                <div className="text-center mb-8 sm:mb-12">
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                        <UserPlus className="w-7 h-7 sm:w-8 sm:h-8 text-blue-600" />
                     </div>
-                    <h1 className="text-4xl font-bold text-gray-900 mb-4">Claim Your Professional Profile</h1>
-                    <p className="text-lg text-gray-600">Join HealthConnect to manage your information and connect with new patients.</p>
+                    <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Claim Your Professional Profile</h1>
+                    <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">Join HealthConnect to manage your information and connect with new patients.</p>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                {/* Main content - Stack on mobile, side by side on desktop */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 max-w-5xl mx-auto">
                     {/* Left Side - Why Claim Your Profile */}
-                    <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8">
-                        <h2 className="text-2xl font-bold text-blue-900 mb-6">Why Claim Your Profile?</h2>
-                        <p className="text-blue-800 text-sm mb-6">Unlock benefits that help you serve more patients.</p>
+                    <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl sm:rounded-2xl p-6 sm:p-8">
+                        <h2 className="text-xl sm:text-2xl font-bold text-blue-900 mb-4 sm:mb-6">Why Claim Your Profile?</h2>
+                        <p className="text-blue-800 text-sm mb-5 sm:mb-6">Unlock benefits that help you serve more patients.</p>
                         
-                        <div className="space-y-6 mb-8">
-                            <div className="flex items-start gap-4">
+                        <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
+                            <div className="flex items-start gap-3 sm:gap-4">
                                 <div className="w-8 h-8 bg-blue-200 rounded-full flex items-center justify-center flex-shrink-0">
                                     <Shield className="w-4 h-4 text-blue-700" />
                                 </div>
@@ -61,7 +79,7 @@ const ClaimProfilePage = () => {
                                 </div>
                             </div>
                             
-                            <div className="flex items-start gap-4">
+                            <div className="flex items-start gap-3 sm:gap-4">
                                 <div className="w-8 h-8 bg-blue-200 rounded-full flex items-center justify-center flex-shrink-0">
                                     <Users className="w-4 h-4 text-blue-700" />
                                 </div>
@@ -71,7 +89,7 @@ const ClaimProfilePage = () => {
                                 </div>
                             </div>
                             
-                            <div className="flex items-start gap-4">
+                            <div className="flex items-start gap-3 sm:gap-4">
                                 <div className="w-8 h-8 bg-blue-200 rounded-full flex items-center justify-center flex-shrink-0">
                                     <BarChart3 className="w-4 h-4 text-blue-700" />
                                 </div>
@@ -82,18 +100,21 @@ const ClaimProfilePage = () => {
                             </div>
                         </div>
 
-                        {/* Profile Preview */}
+                        {/* Profile Preview - Mobile optimized */}
                         <div className="bg-white rounded-lg shadow-sm p-4 mb-4">
                             <div className="flex items-start gap-3 mb-4">
-                                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                                    <User className="w-6 h-6 text-blue-600" />
+                                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <User className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
                                 </div>
-                                <div className="flex-1">
-                                    <h4 className="font-semibold text-gray-900">Dr. Emily Carter</h4>
-                                    <p className="text-sm text-gray-600">Cardiologist</p>
-                                    <p className="text-xs text-gray-500">123 Health St, Wellness City, TX</p>
+                                <div className="flex-1 min-w-0">
+                                    <h4 className="font-semibold text-gray-900 text-sm sm:text-base">Dr. Emily Carter</h4>
+                                    <p className="text-xs sm:text-sm text-gray-600">Cardiologist</p>
+                                    <p className="text-xs text-gray-500 truncate">123 Health St, Wellness City, TX</p>
                                 </div>
-                                <button className="bg-blue-600 text-white px-3 py-1 rounded text-xs">
+                                <button 
+                                    onClick={handleViewProfile}
+                                    className="bg-blue-600 text-white px-2 sm:px-3 py-1 rounded text-xs whitespace-nowrap hover:bg-blue-700 transition-colors"
+                                >
                                     View Profile
                                 </button>
                             </div>
@@ -102,6 +123,7 @@ const ClaimProfilePage = () => {
                             </div>
                         </div>
 
+                        {/* Responsive grid for specialties and info */}
                         <div className="bg-white rounded-lg p-4">
                             <div className="mb-3">
                                 <h4 className="font-semibold text-gray-900 text-sm mb-2">Specialties</h4>
@@ -111,7 +133,7 @@ const ClaimProfilePage = () => {
                                 </div>
                             </div>
                             
-                            <div className="grid grid-cols-2 gap-4 text-xs">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
                                 <div>
                                     <h5 className="font-medium text-gray-900 mb-1">Office Hours</h5>
                                     <div className="text-gray-600 space-y-1">
@@ -123,7 +145,10 @@ const ClaimProfilePage = () => {
                                 <div>
                                     <h5 className="font-medium text-gray-900 mb-1">Board Info</h5>
                                     <p className="text-gray-600">Want to learn more about Dr. Carter? Register to get full access</p>
-                                    <button className="bg-blue-600 text-white px-2 py-1 rounded text-xs mt-1">
+                                    <button 
+                                        onClick={handleRegisterClaim}
+                                        className="bg-blue-600 text-white px-2 py-1 rounded text-xs mt-1 hover:bg-blue-700 transition-colors"
+                                    >
                                         Register & Claim
                                     </button>
                                 </div>
@@ -131,14 +156,14 @@ const ClaimProfilePage = () => {
                         </div>
                     </div>
 
-                    {/* Right Side - Registration Form */}
-                    <div className="bg-white rounded-2xl shadow-sm p-8">
-                        <h2 className="text-2xl font-bold text-gray-900 mb-2">Register & Verify</h2>
-                        <p className="text-gray-600 mb-8">Provide your details to get started</p>
+                    {/* Right Side - Registration Form - More touch-friendly on mobile */}
+                    <div className="bg-white rounded-xl sm:rounded-2xl shadow-sm p-6 sm:p-8 registration-form">
+                        <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Register & Verify</h2>
+                        <p className="text-gray-600 mb-6 sm:mb-8">Provide your details to get started</p>
                         
-                        <div className="space-y-6">
+                        <div className="space-y-5 sm:space-y-6">
                             <div>
-                                <label className="block text-sm font-medium text-gray-900 mb-2">Email Address</label>
+                                <label className="block text-sm font-medium text-gray-900 mb-1.5 sm:mb-2">Email Address</label>
                                 <input
                                     type="email"
                                     placeholder="you@example.com"
@@ -149,7 +174,7 @@ const ClaimProfilePage = () => {
                             </div>
                             
                             <div>
-                                <label className="block text-sm font-medium text-gray-900 mb-2">Mobile Number</label>
+                                <label className="block text-sm font-medium text-gray-900 mb-1.5 sm:mb-2">Mobile Number</label>
                                 <input
                                     type="tel"
                                     placeholder="(555) 123-4567"
@@ -161,7 +186,7 @@ const ClaimProfilePage = () => {
                             </div>
                             
                             <div>
-                                <label className="block text-sm font-medium text-gray-900 mb-2">NPI Number</label>
+                                <label className="block text-sm font-medium text-gray-900 mb-1.5 sm:mb-2">NPI Number</label>
                                 <input
                                     type="text"
                                     placeholder="Your NPI"
@@ -173,7 +198,7 @@ const ClaimProfilePage = () => {
                             </div>
                             
                             <div>
-                                <label className="block text-sm font-medium text-gray-900 mb-2">Create Password</label>
+                                <label className="block text-sm font-medium text-gray-900 mb-1.5 sm:mb-2">Create Password</label>
                                 <input
                                     type="password"
                                     placeholder="Password"
@@ -183,17 +208,18 @@ const ClaimProfilePage = () => {
                                 />
                             </div>
                             
-                            <div className="text-sm text-gray-600">
+                            <div className="text-sm text-gray-600 pt-2">
                                 I agree to <span className="text-blue-600 underline cursor-pointer">terms</span> & <span className="text-blue-600 underline cursor-pointer">privacy policy</span>
                             </div>
                             
                             <button 
-                                className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                                onClick={handleFormSubmit}
+                                className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors mt-2"
                             >
                                 Register & Claim
                             </button>
                             
-                            <div className="text-center text-sm text-gray-600">
+                            <div className="text-center text-sm text-gray-600 pt-2">
                                 Already have an account? <span className="text-blue-600 underline cursor-pointer">Sign in</span>
                             </div>
                         </div>

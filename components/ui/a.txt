@@ -46,39 +46,39 @@ const LandingPage = () => {
             
             
             {/* Hero Section with Precisely Constrained Gradient Background */}
-            <div className="w-full pb-10 md:pb-20 relative bg-white">
+            <div className="w-full pb-20 relative bg-white">
                 {/* Gradient background overlay */}
+                <br /><br />
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_150%_100%_at_50%_40%,_rgba(96,165,250,0.4)_0%,_rgba(147,197,253,0.3)_20%,_rgba(186,219,255,0.2)_40%,_rgba(255,255,255,0.3)_70%,_transparent_100%)]"></div>
                 
                 <motion.section 
-                    className="px-4 md:px-6 py-8 md:py-16 text-center max-w-5xl mx-auto relative z-10"
+                    className="px-6 py-16 text-center max-w-5xl mx-auto relative z-10"
                     initial="hidden"
                     animate="visible"
                     variants={staggerContainer}
                 >
                     <motion.h1 
-                        className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-[#101828] mb-4 md:mb-6 leading-tight drop-shadow-lg"
+                        className="text-8xl md:text-6xl font-extrabold text-[#101828] mb-6 leading-tight drop-shadow-lg"
                         variants={fadeIn}
                     >
                         Find Trusted Care, <br /><span className="text-[#2563EB] drop-shadow-xl">Effortlessly</span>.
                     </motion.h1>
                     
                     <motion.div 
-                        className="space-y-2 text-base md:text-xl text-black mb-8 md:mb-12 max-w-2xl mx-auto drop-shadow-md"
+                        className="space-y-2 text-xl text-black mb-12 max-w-2xl mx-auto drop-shadow-md"
                         variants={fadeIn}
                     >
                         <p>Search for top-rated doctors and specialists in your area.</p>
                         <p>Discover the quality of care you deserve.</p>
                     </motion.div>
-                    <br />
 
-                    {/* Search Form - Responsive */}
+                    {/* Search Form */}
                     <motion.div 
-                        className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 mb-8 max-w-4xl mx-auto border border-[#F2F4F7] transition-all duration-300"
+                        className="bg-white rounded-2xl shadow-xl p-8 mb-8 max-w-4xl max-h-4xl mx-auto border border-[#F2F4F7] transition-all duration-300"
                         variants={fadeIn}
                         whileHover={{ boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)" }}
                     >
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
+                        <div className="grid md:grid-cols-2 gap-6 mb-6">
                             <div className="group">
                                 <label className="block text-sm font-medium text-[#344054] mb-2 text-left">
                                     Specialty, condition, or doctor
@@ -113,7 +113,7 @@ const LandingPage = () => {
                             </div>
                         </div>
                         <motion.button 
-                            className="w-full bg-[#2563EB] text-white py-3 md:py-3.5 rounded-xl font-semibold text-base"
+                            className="w-full bg-[#2563EB] text-white py-3.5 rounded-xl font-semibold text-base"
                             whileHover={{ backgroundColor: "#1D4ED8", scale: 1.01 }}
                             whileTap={{ scale: 0.98 }}
                         >
@@ -123,21 +123,21 @@ const LandingPage = () => {
                 </motion.section>
             </div>
 
-            {/* Specialties Section - Responsive */}
+            {/* Specialties Section - No dividing line */}
             <div className="bg-white -mt-2">
                 <motion.h2 
-                    className="text-2xl md:text-3xl font-bold text-[#101828] mb-6 md:mb-10 text-center pt-2 px-4"
+                    className="text-3xl font-bold text-[#101828] mb-10 text-center pt-2"
                     variants={fadeIn}
                 >
                     Browse by Top Specialties
                 </motion.h2>
 
                 <motion.div 
-                    className="mb-16 md:mb-20 rounded-2xl shadow-xl p-6 md:p-10 border border-[#F2F4F7] bg-white max-w-5xl mx-4 md:mx-auto"
+                    className="mb-20 rounded-2xl shadow-xl p-10 border border-[#F2F4F7] bg-white max-w-5xl mx-auto"
                     variants={fadeIn}
                 >
                     <motion.div 
-                        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"
+                        className="grid grid-cols-2 md:grid-cols-4 gap-6"
                         variants={staggerContainer}
                         initial="hidden"
                         animate="visible"
@@ -167,19 +167,19 @@ const LandingPage = () => {
                 </motion.div>
             </motion.div>
 
-            {/* How It Works Section - Responsive */}
+            {/* How It Works Section */}
             <motion.h2 
-                className="text-2xl md:text-3xl font-bold text-[#101828] mb-6 md:mb-12 text-center px-4"
+                className="text-3xl font-bold text-[#101828] mb-12 text-center"
                 variants={fadeIn}
             >
                 How California Best Doc Works
             </motion.h2>
             <motion.div 
-                className="mb-16 md:mb-20 bg-white rounded-2xl shadow-xl p-6 md:p-10 border border-[#F2F4F7] max-w-5xl mx-4 md:mx-auto"
+                className="mb-20 bg-white rounded-2xl shadow-xl p-10 border border-[#F2F4F7] max-w-5xl mx-auto"
                 variants={fadeIn}
             >
                 <motion.div 
-                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-10"
+                    className="grid md:grid-cols-3 gap-10"
                     variants={staggerContainer}
                     initial="hidden"
                     animate="visible"

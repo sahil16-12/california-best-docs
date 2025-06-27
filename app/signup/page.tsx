@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, Mail, Phone, Lock } from 'lucide-react';
 import Link from 'next/link';
+
 const SignupPage = () => {
     const [formData, setFormData] = useState({
         emailOrPhone: '',
@@ -31,24 +32,24 @@ const SignupPage = () => {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <div className="flex items-center justify-center px-4 py-12">
+            <div className="flex items-center justify-center px-4 py-8 sm:py-12">
                 <div className="w-full max-w-md">
                     {/* Signup Card */}
-                    <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
-                        {/* Header */}
-                        <div className="text-center mb-8">
-                            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <Mail className="w-8 h-8 text-blue-600" />
+                    <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-100">
+                        {/* Header - Sized appropriately for mobile */}
+                        <div className="text-center mb-6 sm:mb-8">
+                            <div className="w-14 h-14 sm:w-16 sm:h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                                <Mail className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
                             </div>
-                            <h1 className="text-2xl font-bold text-gray-900 mb-2">Create Account</h1>
-                            <p className="text-gray-600">Join California Best Docs to find trusted care</p>
+                            <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1 sm:mb-2">Create Account</h1>
+                            <p className="text-sm sm:text-base text-gray-600">Join California Best Docs to find trusted care</p>
                         </div>
 
-                        {/* Signup Form */}
-                        <form onSubmit={handleSubmit} className="space-y-6">
+                        {/* Signup Form - Touch-friendly inputs */}
+                        <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
                             {/* Email or Phone */}
                             <div>
-                                <label className="block text-sm font-medium text-gray-900 mb-2">
+                                <label className="block text-sm font-medium text-gray-900 mb-1.5 sm:mb-2">
                                     Email or Phone Number
                                 </label>
                                 <div className="relative">
@@ -68,7 +69,7 @@ const SignupPage = () => {
 
                             {/* Password */}
                             <div>
-                                <label className="block text-sm font-medium text-gray-900 mb-2">
+                                <label className="block text-sm font-medium text-gray-900 mb-1.5 sm:mb-2">
                                     Password
                                 </label>
                                 <div className="relative">
@@ -99,7 +100,7 @@ const SignupPage = () => {
 
                             {/* Confirm Password */}
                             <div>
-                                <label className="block text-sm font-medium text-gray-900 mb-2">
+                                <label className="block text-sm font-medium text-gray-900 mb-1.5 sm:mb-2">
                                     Confirm Password
                                 </label>
                                 <div className="relative">
@@ -150,7 +151,7 @@ const SignupPage = () => {
                         </form>
 
                         {/* Divider */}
-                        <div className="my-6">
+                        <div className="my-5 sm:my-6">
                             <div className="relative">
                                 <div className="absolute inset-0 flex items-center">
                                     <div className="w-full border-t border-gray-300" />
@@ -164,7 +165,7 @@ const SignupPage = () => {
                         {/* Google Signup */}
                         <button
                             onClick={handleGoogleSignup}
-                            className="w-full flex items-center justify-center gap-3 bg-white border border-gray-300 text-gray-900 py-3 rounded-xl font-medium hover:bg-gray-50 transition-colors duration-200"
+                            className="w-full flex items-center justify-center gap-2 sm:gap-3 bg-white border border-gray-300 text-gray-900 py-3 rounded-xl font-medium hover:bg-gray-50 transition-colors duration-200"
                         >
                             <svg className="w-5 h-5" viewBox="0 0 24 24">
                                 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -172,11 +173,11 @@ const SignupPage = () => {
                                 <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
                                 <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
                             </svg>
-                            Sign up with Google
+                            <span className="text-sm sm:text-base">Sign up with Google</span>
                         </button>
 
                         {/* Login Link */}
-                        <div className="text-center mt-6">
+                        <div className="text-center mt-5 sm:mt-6">
                             <p className="text-sm text-gray-600">
                                 Already have an account?{' '}
                                 <Link href="/login" className="text-blue-600 hover:text-blue-700 font-medium underline">
@@ -187,7 +188,6 @@ const SignupPage = () => {
                     </div>
                 </div>
             </div>
-        
         </div>
     );
 };
