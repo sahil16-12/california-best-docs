@@ -1,0 +1,240 @@
+'use client';
+import React from 'react';
+import { Search, MapPin, Heart, Brain, Bone, Sparkles, Users, Calendar, Star, Stethoscope } from 'lucide-react';
+import { motion } from 'framer-motion';
+import Header from './Header';
+
+const LandingPage = () => {
+    // Animation variants
+    const fadeIn = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { 
+            opacity: 1, 
+            y: 0,
+            transition: { duration: 0.6 }
+        }
+    };
+    
+    const staggerContainer = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2
+            }
+        }
+    };
+    
+    const cardVariants = {
+        hidden: { opacity: 0, scale: 0.9 },
+        visible: { 
+            opacity: 1, 
+            scale: 1,
+            transition: { duration: 0.5 }
+        },
+        hover: { 
+            y: -8,
+            boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+            transition: { type: "spring" as const, stiffness: 400, damping: 10 }
+        }
+    };
+
+    return (
+        <div className="min-h-screen">
+            {/* Header */}
+            <Header />
+            <br /><br /><br />
+            
+            {/* Hero Section */}
+            <motion.section 
+                className="px-6 py-16 text-center max-w-5xl mx-auto"
+                initial="hidden"
+                animate="visible"
+                variants={staggerContainer}
+            >
+                <motion.h1 
+                    className="text-8xl md:text-6xl font-extrabold text-[#101828] mb-6 leading-tight"
+                    variants={fadeIn}
+                >
+                    Find Trusted Care, <br /><span className="text-[#2563EB]">Effortlessly</span>.
+                </motion.h1>
+                
+                <motion.div 
+                    className="space-y-2 text-xl text-black mb-12 max-w-2xl mx-auto"
+                    variants={fadeIn}
+                >
+                    <p>Search for top-rated doctors and specialists in your area.</p>
+                    <p>Discover the quality of care you deserve.</p>
+                </motion.div>
+
+                {/* Search Form */}
+                <motion.div 
+                    className="bg-white rounded-2xl shadow-xl p-8 mb-16 max-w-4xl max-h-4xl mx-auto border border-[#F2F4F7] transition-all duration-300"
+                    variants={fadeIn}
+                    whileHover={{ boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)" }}
+                >
+                    <div className="grid md:grid-cols-2 gap-6 mb-6">
+                        <div className="group">
+                            <label className="block text-sm font-medium text-[#344054] mb-2 text-left">
+                                Specialty, condition, or doctor
+                            </label>
+                            <div className="relative">
+                                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <Stethoscope className="h-5 w-5 text-[#98A2B3]" />
+                                </div>
+                                <motion.input
+                                    type="text"
+                                    placeholder="e.g. Cardiologist"
+                                    className="w-full pl-10 pr-3 py-3 border border-[#D0D5DD] rounded-xl focus:ring-2 focus:ring-[#2563EB] focus:border-[#2563EB] text-[#344054] placeholder-[#98A2B3] text-sm bg-white"
+                                    whileFocus={{ boxShadow: "0 0 0 4px rgba(37, 99, 235, 0.1)" }}
+                                />
+                            </div>
+                        </div>
+                        <div className="group">
+                            <label className="block text-sm font-medium text-[#344054] mb-2 text-left">
+                                Location
+                            </label>
+                            <div className="relative">
+                                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <MapPin className="h-5 w-5 text-[#98A2B3]" />
+                                </div>
+                                <motion.input
+                                    type="text"
+                                    placeholder="e.g. City or Zip Code"
+                                    className="w-full pl-10 pr-3 py-3 border border-[#D0D5DD] rounded-xl focus:ring-2 focus:ring-[#2563EB] focus:border-[#2563EB] text-[#344054] placeholder-[#98A2B3] text-sm bg-white"
+                                    whileFocus={{ boxShadow: "0 0 0 4px rgba(37, 99, 235, 0.1)" }}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <motion.button 
+                        className="w-full bg-[#2563EB] text-white py-3.5 rounded-xl font-semibold text-base"
+                        whileHover={{ backgroundColor: "#1D4ED8", scale: 1.01 }}
+                        whileTap={{ scale: 0.98 }}
+                    >
+                        Search Doctor
+                    </motion.button>
+                </motion.div>
+                <br /><br /><br /><br />
+
+                {/* Specialties Section */}
+                <motion.h2 
+                    className="text-3xl font-bold text-[#101828] mb-10"
+                    variants={fadeIn}
+                >
+                    Browse by Top Specialties
+                </motion.h2>
+
+                <motion.div 
+                    className="mb-20 rounded-2xl shadow-xl p-10 border border-[#F2F4F7] bg-white"
+                    variants={fadeIn}
+                >
+                    <motion.div 
+                        className="grid grid-cols-2 md:grid-cols-4 gap-6"
+                        variants={staggerContainer}
+                        initial="hidden"
+                        animate="visible"
+                    >
+                        {[
+                            { icon: Heart, name: 'Cardiology', subtext: 'Find Doctor →' },
+                            { icon: Brain, name: 'Neurology', subtext: 'Find Doctor →' },
+                            { icon: Bone, name: 'Orthopaedic', subtext: 'Find Doctor →' },
+                            { icon: Sparkles, name: 'Dermatology', subtext: 'Find Doctor →' }
+                        ].map((specialty, index) => (
+                            <motion.div 
+                                key={index} 
+                                className="bg-white rounded-xl p-5 shadow-md border border-[#F2F4F7] cursor-pointer"
+                                variants={cardVariants}
+                                whileHover="hover"
+                            >
+                                <motion.div 
+                                    className="w-14 h-14 bg-[#EFF4FF] rounded-xl flex items-center justify-center mx-auto mb-4"
+                                    whileHover={{ scale: 1.05, backgroundColor: "#E0EAFF" }}
+                                >
+                                    <specialty.icon className="w-7 h-7 text-[#2563EB]" />
+                                </motion.div>
+                                <h3 className="font-bold text-[#101828] text-base mb-2">{specialty.name}</h3>
+                                <p className="text-[#2563EB] text-sm font-medium">{specialty.subtext}</p>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                </motion.div>
+
+                {/* How It Works Section */}
+                <motion.h2 
+                    className="text-3xl font-bold text-[#101828] mb-12"
+                    variants={fadeIn}
+                >
+                    How California Best Doc Works
+                </motion.h2>
+
+                <motion.div 
+                    className="mb-20 bg-white rounded-2xl shadow-xl p-10 border border-[#F2F4F7]"
+                    variants={fadeIn}
+                >
+                    <motion.div 
+                        className="grid md:grid-cols-3 gap-10"
+                        variants={staggerContainer}
+                        initial="hidden"
+                        animate="visible"
+                    >
+                        {[
+                            {
+                                step: '1',
+                                title: 'Search',
+                                description: 'Enter your medical need and location.',
+                                icon: Search
+                            },
+                            {
+                                step: '2',
+                                title: 'Compare',
+                                description: 'Review profiles, qualifications, and reviews.',
+                                icon: Star
+                            },
+                            {
+                                step: '3',
+                                title: 'Connect',
+                                description: 'Contact or book with your chosen doctor.',
+                                icon: Calendar
+                            }
+                        ].map((step, index) => (
+                            <motion.div 
+                                key={index} 
+                                className="text-center"
+                                variants={cardVariants}
+                            >
+                                <motion.div 
+                                    className="w-20 h-20 bg-[#EFF4FF] rounded-full flex items-center justify-center mx-auto mb-6 shadow-md"
+                                    whileHover={{ scale: 1.05, backgroundColor: "#E0EAFF" }}
+                                >
+                                    <step.icon className="w-9 h-9 text-[#2563EB]" />
+                                </motion.div>
+                                <motion.span 
+                                    className="inline-block bg-[#EFF4FF] text-[#2563EB] text-xs px-2.5 py-1 rounded-full font-medium mb-2"
+                                >
+                                    {`Step ${step.step}`}
+                                </motion.span>
+                                <motion.h3 
+                                    className="text-lg font-bold text-[#101828] mb-3"
+                                >
+                                    {step.title}
+                                </motion.h3>
+                                <motion.p 
+                                    className="text-[#475467] leading-relaxed"
+                                >
+                                    {step.description}
+                                </motion.p>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                </motion.div>
+            </motion.section>
+
+            {/* Footer */}
+            
+        </div>
+    );
+};
+
+
+export default LandingPage;
